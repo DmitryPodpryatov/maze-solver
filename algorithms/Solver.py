@@ -54,7 +54,7 @@ class Solver(ABC):
         green = (0, 255, 0)
         blue = (0, 0, 255)
 
-        # Convert to cartesian coordinates for plotting
+        # Convert to cartesian coordinates for utils
         # See https://stackoverflow.com/a/18817152/11109151 for explanation of `np.int32`
         path = np.int32([self.__matrix_to_cartesian(self.path)])
 
@@ -66,8 +66,10 @@ class Solver(ABC):
             image[self.start] = green
             image[self.finish] = blue
         else:
-            image = cv2.circle(image, self.start, radius=thickness, color=green, thickness=-1)
-            image = cv2.circle(image, self.finish, radius=thickness, color=blue, thickness=-1)
+            image = cv2.circle(image, self.__coords_to_cartesian(self.start), radius=thickness, color=green,
+                               thickness=-1)
+            image = cv2.circle(image, self.__coords_to_cartesian(self.finish), radius=thickness, color=blue,
+                               thickness=-1)
 
         return image
 
