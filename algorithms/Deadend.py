@@ -15,10 +15,8 @@ class Deadend(Solver):
         """
         Given an image of a maze, solve it and return a solution path
         """
-        #coords = self.start
 
         def find_deadends(maze):
-            #maze = Maze(image, self.start, self.finish)
             deadends = []
             for i in range(maze.height):
                 for j in range(maze.width):

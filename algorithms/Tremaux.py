@@ -24,14 +24,8 @@ class Tremaux(Solver):
         while path[-1] != self.finish:
             coords = path[i]
             neighbors = self.neighbors(coords)
-            # if CHECK != 0:
-            #    print('Info after deadend')
-            #    print('Point:', coords)
-            #    print('Nei', neighbors)
             if len(neighbors) == 1 and neighbors[0] in path:
                 DEADEND = True
-                # print('Find deadend', i)
-                # print(path)
 
             if not DEADEND:
                 for x in neighbors:
@@ -46,8 +40,6 @@ class Tremaux(Solver):
                     neighbors = self.neighbors(path[i])
                 DEADEND = False
                 CHECK = i
-                # print('Close deadend', i)
-                # print(path)
 
             if debug:
                 if len(path) % 20 == 0:
