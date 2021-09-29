@@ -1,2 +1,2 @@
-# maze-solver
-Fall 2021 - ICV Project repository
+
+# Fall 2021 - ICV Project repository

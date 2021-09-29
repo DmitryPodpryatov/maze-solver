@@ -4,9 +4,9 @@ from .Solver import Solver
 import numpy as np
 
 
-class Wilson(Solver):
+class A_Star(Solver):
     """
-    Wilson's algorithm
+    A*
     """
 
     def solve(self, debug: bool = False) -> np.ndarray:
