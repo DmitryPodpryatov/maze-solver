@@ -79,10 +79,10 @@ class Solver(ABC):
         """
         y, x = coords
 
-        left = (y - 1, x) if y > 0 else None
-        right = (y + 1, x) if y < self.width - 1 else None
-        top = (y, x - 1) if x > 0 else None
-        bottom = (y, x + 1) if x < self.height - 1 else None
+        top = (y - 1, x) if y > 0 else None
+        bottom = (y + 1, x) if y < self.height - 1 else None
+        left = (y, x - 1) if x > 0 else None
+        right = (y, x + 1) if x < self.width - 1 else None
 
         ns = [left, right, top, bottom]
         shuffle(ns)  # Randomly rearrange list to prevent algorithm from going some way first
