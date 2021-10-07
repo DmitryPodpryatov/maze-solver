@@ -14,7 +14,7 @@ class Solver(ABC):
     255 in the image is path and 0 is a wall
     """
 
-    def __init__(self, image: np.ndarray, start: tuple[int, int], finish: tuple[int, int]) -> None:
+    def __init__(self, image: np.ndarray, start, finish) -> None:
         """
         :param image: input image
         :param start: coordinates of the beginning of the maze
@@ -73,7 +73,7 @@ class Solver(ABC):
 
         return image
 
-    def neighbors(self, coords: tuple[int, int]) -> list[tuple[int, int]]:
+    def neighbors(self, coords):
         """
         Return all neighbors' coordinates of the pixel at `coords`
         """
@@ -99,7 +99,7 @@ class Solver(ABC):
         return new_path
 
     @staticmethod
-    def __coords_to_cartesian(coords: tuple[int, int]) -> tuple[int, int]:
+    def __coords_to_cartesian(coords):
         """
         Convert coordinates in the matrix notation to the cartesian coordinates
 

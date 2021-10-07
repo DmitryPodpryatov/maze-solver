@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def crop(image: np.ndarray, points: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+def crop(image: np.ndarray, points: np.ndarray):
     """
     :param image: input image as numpy array
     :param points: points of the cropping part in order
@@ -57,7 +57,7 @@ def draw_solution_on_source_image(source: np.ndarray, cropped: np.ndarray, M_inv
     return result
 
 
-def inverse_crop(image: np.ndarray, M: np.ndarray, out_shape: tuple[int, int]) -> np.ndarray:
+def inverse_crop(image: np.ndarray, M: np.ndarray, out_shape) -> np.ndarray:
     uncropped = image.copy()
     uncropped = cv2.warpPerspective(uncropped, M, out_shape)
 
