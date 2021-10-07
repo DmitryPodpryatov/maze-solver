@@ -17,24 +17,9 @@ class Deadend(Solver):
         Given an image of a maze, solve it and return a solution path
         """
 
-        def find_deadends(maze):
-            deadends = []
-            for i in range(maze.height):
-                for j in range(maze.width):
-                    point = (i, j)
-                    if maze.image[i, j] == 255:
-                        if len(maze.neighbors(point)) == 1:
-                            deadends.append(point)
-            if maze.start in deadends:
-                deadends.remove(maze.start)
-            if maze.finish in deadends:
-                deadends.remove(maze.finish)
-            return deadends
-
-        all_points = np.squeeze(np.asarray(self.image))
         new_image = copy(self.image)
         maze = Maze(new_image, self.start, self.finish)
-        deadends = find_deadends(maze)
+        deadends = self.find_deadends(maze)
 
         while deadends:
             bad_path = []
@@ -50,7 +35,7 @@ class Deadend(Solver):
             for point in bad_path:
                 new_image[point] = 0
             maze = Maze(new_image, self.start, self.finish)
-            deadends = find_deadends(maze)
+            deadends = self.find_deadends(maze)
 
         path = []
         for i in range(maze.height):
@@ -85,3 +70,18 @@ class Deadend(Solver):
             image = cv2.circle(image, self.finish, radius=thickness, color=blue, thickness=-1)
 
         return image
+
+    @staticmethod
+    def find_deadends(maze):
+        deadends = []
+        for i in range(maze.height):
+            for j in range(maze.width):
+                point = (i, j)
+                if maze.image[i, j] == 255:
+                    if len(maze.neighbors(point)) == 1:
+                        deadends.append(point)
+        if maze.start in deadends:
+            deadends.remove(maze.start)
+        if maze.finish in deadends:
+            deadends.remove(maze.finish)
+        return deadends

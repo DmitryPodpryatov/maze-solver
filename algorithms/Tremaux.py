@@ -19,7 +19,6 @@ class Tremaux(Solver):
         path = [coords]
         DEADEND = False
         i = 0
-        CHECK = 0
 
         while path[-1] != self.finish:
             coords = path[i]
@@ -39,7 +38,6 @@ class Tremaux(Solver):
                     i -= 1
                     neighbors = self.neighbors(path[i])
                 DEADEND = False
-                CHECK = i
 
             if debug:
                 if len(path) % 20 == 0:
