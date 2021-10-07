@@ -24,6 +24,8 @@ to the path drawing
 
 [images/cropped](images/cropped) contains pictures with cropped out mazes from the [./images](images) folder
 
+[images/solutions](images/solutions) contains pictures with drawn solution path
+
 ## Colors
 
 * **Green** - start
